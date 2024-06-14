@@ -1,11 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
 
-:root{
-   --main-color:#2B1103;
-   --sub-color:#DCC69C;
-   --white:#fff;
-   --border:.1rem solid rgba(220, 198, 156, .3);
-}
 
 *{
    font-family: 'Montserrat', sans-serif;
@@ -200,6 +193,14 @@ section{
    filter: invert(1);
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
+
+:root{
+   --main-color:#2B1103;
+   --sub-color:#DCC69C;
+   --white:#fff;
+   --border:.1rem solid rgba(220, 198, 156, .3);
+}
 .about .row{
    display: flex;
    flex-wrap: wrap;
@@ -243,20 +244,19 @@ section{
 
 .services .box-container{
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
-   gap: 1.5rem;
-   justify-content: center;
    align-items: flex-start;
+   display: inline;
 }
 
 .services .box-container .box{
    padding: 2rem;
-   text-align: center;
+   display:grid
 }
 
 .services .box-container .box img{
    height: 7rem;
    margin-bottom: 1rem;
+   display: flex;
 }
 
 .services .box-container .box h3{
