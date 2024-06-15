@@ -11,13 +11,11 @@
 </head>
 <body>
    <section class="header">
-
       <div class="flex">
          <a href="#home" class="logo">Hotels And Resorts</a>
          <a href="#availability" class="btn">check availability</a>
          <div id="menu-btn" class="fas fa-bars"></div>
       </div>
-   
       <nav class="navbar">
          <a href="home.php">home</a>
          <a href="about.php">about</a>
@@ -26,7 +24,6 @@
          <a href="contact.php">contact</a>
          <a href="bookings.php">my bookings</a>
       </nav>
-   
    </section>
     <section class="availability" id="availability">
         <form action="" method="post">
