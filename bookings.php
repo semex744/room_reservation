@@ -88,7 +88,7 @@ if(isset($_POST['cancel'])){
    ?>
    <div class="box" style="text-align: center;">
       <p style="padding-bottom: .5rem; text-transform:capitalize;">No bookings found!</p>
-      <a href="index.php#reservation" class="btn">Book New</a>
+      <a href="reservation.php" class="btn">Book New</a>
    </div>
    <?php
       }

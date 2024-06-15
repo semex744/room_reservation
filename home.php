@@ -34,7 +34,6 @@ if(isset($_POST['check'])){
 }
 
 if(isset($_POST['book'])){
-
    $booking_id = create_unique_id();
    $name = mysqli_real_escape_string($conn, $_POST['name']);
    $email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -44,7 +43,7 @@ if(isset($_POST['book'])){
    $check_out = mysqli_real_escape_string($conn, $_POST['check_out']);
    $adults = mysqli_real_escape_string($conn, $_POST['adults']);
    $childs = mysqli_real_escape_string($conn, $_POST['childs']);
-
+   $verification_code = rand(100000, 999999);
    $total_rooms = 0;
 
    $check_bookings = mysqli_prepare($conn, "SELECT * FROM `bookings` WHERE check_in = ?");
@@ -53,29 +52,31 @@ if(isset($_POST['book'])){
    $result = mysqli_stmt_get_result($check_bookings);
 
    while($fetch_bookings = mysqli_fetch_assoc($result)){
-      $total_rooms += $fetch_bookings['rooms'];
+       $total_rooms += $fetch_bookings['rooms'];
    }
 
    if($total_rooms >= 30){
-      $warning_msg[] = 'rooms are not available';
+       $warning_msg[] = 'rooms are not available';
    }else{
-
       $verify_bookings = mysqli_prepare($conn, "SELECT * FROM `bookings` WHERE user_id = ? AND name = ? AND email = ? AND number = ? AND rooms = ? AND check_in = ? AND check_out = ? AND adults = ? AND childs = ?");
-      mysqli_stmt_bind_param($verify_bookings, "ississssss", $user_id, $name, $email, $number, $rooms, $check_in, $check_out, $adults, $childs);
-      mysqli_stmt_execute($verify_bookings);
-      $result = mysqli_stmt_get_result($verify_bookings);
+      mysqli_stmt_bind_param($verify_bookings, "ssssissss", $user_id, $name, $email, $number, $rooms, $check_in, $check_out, $adults, $childs);
+       mysqli_stmt_execute($verify_bookings);
+       $result = mysqli_stmt_get_result($verify_bookings);
 
-      if(mysqli_num_rows($result) > 0){
-         $warning_msg[] = 'room booked alredy!';
-      }else{
-         $book_room = mysqli_prepare($conn, "INSERT INTO `bookings`(booking_id, user_id, name, email, number, rooms, check_in, check_out, adults, childs) VALUES(?,?,?,?,?,?,?,?,?,?)");
-         mysqli_stmt_bind_param($book_room, "issssisssss", $booking_id, $user_id, $name, $email, $number, $rooms, $check_in, $check_out, $adults, $childs);
-         mysqli_stmt_execute($book_room);
-         $success_msg[] = 'room booked successfully!';
-      }
-
+       if(mysqli_num_rows($result) > 0){
+           $warning_msg[] = 'room booked already!';
+       }else{
+           $book_room = mysqli_prepare($conn, "INSERT INTO `bookings`(booking_id, user_id, name, email, number, rooms, check_in, check_out, adults, childs, verification_code ) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
+           mysqli_stmt_bind_param($book_room, "ssssissss", $booking_id, $user_id, $name, $email, $number, $rooms, $check_in, $check_out, $adults, $childs );
+           mysqli_stmt_execute($book_room);
+           $success_msg[] = 'room booked successfully!';
+       }
+       $to = $email;
+$subject = "Room Booking Verification";
+$message = "Thank you for your room booking. Your verification code is: " . $verification_code;
+$headers = "From: your_email@example.com";
+mail($to, $subject, $message, $headers);
    }
-
 }
 
 if(isset($_POST['send'])){
@@ -121,7 +122,7 @@ if(isset($_POST['send'])){
 
       <div class="flex">
          <a href="#home" class="logo">Hotels And Resorts</a>
-         <a href="#availability" class="btn">check availability</a>
+         <a href="availability.ph" class="btn">check availability</a>
          <div id="menu-btn" class="fas fa-bars"></div>
       </div>
    
@@ -176,6 +177,9 @@ if(isset($_POST['send'])){
    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
    <script src="js/script.js"></script>
+
+   <?php include 'components/message.php'; ?>
+
 </body>
 
 </html>
