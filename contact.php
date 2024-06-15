@@ -26,6 +26,8 @@
          <a href="contact.php">contact</a>
          <a href="bookings.php">my bookings</a>
       </nav>
+   
+
    </section>
     <section class="contact" id="contact">
         <div class="row">

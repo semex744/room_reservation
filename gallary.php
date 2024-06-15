@@ -23,7 +23,7 @@
          <a href="about.php">about</a>
          <a href="reservation.php">reservation</a>
          <a href="gallary.php">gallery</a>
-         <a href="contact.php">contact</a>
+         <a href="contact.php">contact</a>l
          <a href="bookings.php">my bookings</a>
       </nav>
    </section>

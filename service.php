@@ -25,6 +25,8 @@
          <a href="contact.php">contact</a>
          <a href="bookings.php">my bookings</a>
       </nav>
+
+      
    </section>
     <section class="services">
         <div class="box-container">
