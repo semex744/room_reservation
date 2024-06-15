@@ -32,7 +32,7 @@
     <section class="contact" id="contact">
         <div class="row">
      
-           <form action="" method="post">
+           <form action="home.php" method="post">
               <h3>send us message</h3>
               <input type="text" name="name" required maxlength="50" placeholder="enter your name" class="box">
               <input type="email" name="email" required maxlength="50" placeholder="enter your email" class="box">

@@ -26,7 +26,7 @@
       </nav>
    </section>
     <section class="availability" id="availability">
-        <form action="" method="post">
+        <form action="home.php" method="post">
            <div class="flex">
               <div class="box">
                  <p>check in <span>*</span></p>

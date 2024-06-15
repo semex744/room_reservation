@@ -29,7 +29,7 @@
    </section>
     <section class="reservation" id="reservation">
       
-        <form action="" method="post">
+        <form action="home.php" method="post">
            <h3>make a reservation</h3>
            <div class="flex">
               <div class="box">
