@@ -1,3 +1,4 @@
+
 <?php
 
 include 'components/connect.php';
@@ -11,16 +12,15 @@ if(isset($_COOKIE['user_id'])){
 
 if(isset($_POST['check'])){
 
-   $check_in = mysqli_real_escape_string($conn, $_POST['check_in']);
+   $check_in = $_POST['check_in'];
+   $check_in = filter_var($check_in, FILTER_SANITIZE_STRING);
 
    $total_rooms = 0;
 
-   $check_bookings = mysqli_prepare($conn, "SELECT * FROM `bookings` WHERE check_in = ?");
-   mysqli_stmt_bind_param($check_bookings, "s", $check_in);
-   mysqli_stmt_execute($check_bookings);
-   $result = mysqli_stmt_get_result($check_bookings);
+   $check_bookings = $conn->prepare("SELECT * FROM `bookings` WHERE check_in = ?");
+   $check_bookings->execute([$check_in]);
 
-   while($fetch_bookings = mysqli_fetch_assoc($result)){
+   while($fetch_bookings = $check_bookings->fetch(PDO::FETCH_ASSOC)){
       $total_rooms += $fetch_bookings['rooms'];
    }
 
@@ -34,76 +34,80 @@ if(isset($_POST['check'])){
 }
 
 if(isset($_POST['book'])){
+
    $booking_id = create_unique_id();
-   $name = mysqli_real_escape_string($conn, $_POST['name']);
-   $email = mysqli_real_escape_string($conn, $_POST['email']);
-   $number = mysqli_real_escape_string($conn, $_POST['number']);
-   $rooms = mysqli_real_escape_string($conn, $_POST['rooms']);
-   $check_in = mysqli_real_escape_string($conn, $_POST['check_in']);
-   $check_out = mysqli_real_escape_string($conn, $_POST['check_out']);
-   $adults = mysqli_real_escape_string($conn, $_POST['adults']);
-   $childs = mysqli_real_escape_string($conn, $_POST['childs']);
-   $verification_code = rand(100000, 999999);
+   $name = $_POST['name'];
+   $name = filter_var($name, FILTER_SANITIZE_STRING);
+   $email = $_POST['email'];
+   $email = filter_var($email, FILTER_SANITIZE_STRING);
+   $number = $_POST['number'];
+   $number = filter_var($number, FILTER_SANITIZE_STRING);
+   $rooms = $_POST['rooms'];
+   $rooms = filter_var($rooms, FILTER_SANITIZE_STRING);
+   $check_in = $_POST['check_in'];
+   $check_in = filter_var($check_in, FILTER_SANITIZE_STRING);
+   $check_out = $_POST['check_out'];
+   $check_out = filter_var($check_out, FILTER_SANITIZE_STRING);
+   $adults = $_POST['adults'];
+   $adults = filter_var($adults, FILTER_SANITIZE_STRING);
+   $childs = $_POST['childs'];
+   $childs = filter_var($childs, FILTER_SANITIZE_STRING);
+
    $total_rooms = 0;
 
-   $check_bookings = mysqli_prepare($conn, "SELECT * FROM `bookings` WHERE check_in = ?");
-   mysqli_stmt_bind_param($check_bookings, "s", $check_in);
-   mysqli_stmt_execute($check_bookings);
-   $result = mysqli_stmt_get_result($check_bookings);
+   $check_bookings = $conn->prepare("SELECT * FROM `bookings` WHERE check_in = ?");
+   $check_bookings->execute([$check_in]);
 
-   while($fetch_bookings = mysqli_fetch_assoc($result)){
-       $total_rooms += $fetch_bookings['rooms'];
+   while($fetch_bookings = $check_bookings->fetch(PDO::FETCH_ASSOC)){
+      $total_rooms += $fetch_bookings['rooms'];
    }
 
    if($total_rooms >= 30){
-       $warning_msg[] = 'rooms are not available';
+      $warning_msg[] = 'rooms are not available';
    }else{
-      $verify_bookings = mysqli_prepare($conn, "SELECT * FROM `bookings` WHERE user_id = ? AND name = ? AND email = ? AND number = ? AND rooms = ? AND check_in = ? AND check_out = ? AND adults = ? AND childs = ?");
-      mysqli_stmt_bind_param($verify_bookings, "ssssissss", $user_id, $name, $email, $number, $rooms, $check_in, $check_out, $adults, $childs);
-       mysqli_stmt_execute($verify_bookings);
-       $result = mysqli_stmt_get_result($verify_bookings);
 
-       if(mysqli_num_rows($result) > 0){
-           $warning_msg[] = 'room booked already!';
-       }else{
-           $book_room = mysqli_prepare($conn, "INSERT INTO `bookings`(booking_id, user_id, name, email, number, rooms, check_in, check_out, adults, childs, verification_code ) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
-           mysqli_stmt_bind_param($book_room, "ssssissss", $booking_id, $user_id, $name, $email, $number, $rooms, $check_in, $check_out, $adults, $childs );
-           mysqli_stmt_execute($book_room);
-           $success_msg[] = 'room booked successfully!';
-       }
-       $to = $email;
-$subject = "Room Booking Verification";
-$message = "Thank you for your room booking. Your verification code is: " . $verification_code;
-$headers = "From: your_email@example.com";
-mail($to, $subject, $message, $headers);
+      $verify_bookings = $conn->prepare("SELECT * FROM `bookings` WHERE user_id = ? AND name = ? AND email = ? AND number = ? AND rooms = ? AND check_in = ? AND check_out = ? AND adults = ? AND childs = ?");
+      $verify_bookings->execute([$user_id, $name, $email, $number, $rooms, $check_in, $check_out, $adults, $childs]);
+
+      if($verify_bookings->rowCount() > 0){
+         $warning_msg[] = 'room booked alredy!';
+      }else{
+         $book_room = $conn->prepare("INSERT INTO `bookings`(booking_id, user_id, name, email, number, rooms, check_in, check_out, adults, childs) VALUES(?,?,?,?,?,?,?,?,?,?)");
+         $book_room->execute([$booking_id, $user_id, $name, $email, $number, $rooms, $check_in, $check_out, $adults, $childs]);
+         $success_msg[] = 'room booked successfully!';
+      }
+
    }
+
 }
 
 if(isset($_POST['send'])){
 
    $id = create_unique_id();
-   $name = mysqli_real_escape_string($conn, $_POST['name']);
-   $email = mysqli_real_escape_string($conn, $_POST['email']);
-   $number = mysqli_real_escape_string($conn, $_POST['number']);
-   $message = mysqli_real_escape_string($conn, $_POST['message']);
+   $name = $_POST['name'];
+   $name = filter_var($name, FILTER_SANITIZE_STRING);
+   $email = $_POST['email'];
+   $email = filter_var($email, FILTER_SANITIZE_STRING);
+   $number = $_POST['number'];
+   $number = filter_var($number, FILTER_SANITIZE_STRING);
+   $message = $_POST['message'];
+   $message = filter_var($message, FILTER_SANITIZE_STRING);
 
-   $verify_message = mysqli_prepare($conn, "SELECT * FROM `messages` WHERE name = ? AND email = ? AND number = ? AND message = ?");
-   mysqli_stmt_bind_param($verify_message, "ssss", $name, $email, $number, $message);
-   mysqli_stmt_execute($verify_message);
-   $result = mysqli_stmt_get_result($verify_message);
+   $verify_message = $conn->prepare("SELECT * FROM `messages` WHERE name = ? AND email = ? AND number = ? AND message = ?");
+   $verify_message->execute([$name, $email, $number, $message]);
 
-   if(mysqli_num_rows($result) > 0){
+   if($verify_message->rowCount() > 0){
       $warning_msg[] = 'message sent already!';
    }else{
-      $insert_message = mysqli_prepare($conn, "INSERT INTO `messages`(id, name, email, number, message) VALUES(?,?,?,?,?)");
-      mysqli_stmt_bind_param($insert_message, "sssss", $id, $name, $email, $number, $message);
-      mysqli_stmt_execute($insert_message);
+      $insert_message = $conn->prepare("INSERT INTO `messages`(id, name, email, number, message) VALUES(?,?,?,?,?)");
+      $insert_message->execute([$id, $name, $email, $number, $message]);
       $success_msg[] = 'message send successfully!';
    }
 
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -146,7 +150,7 @@ if(isset($_POST['send'])){
                <img src="images/home-img-1.jpg" alt="">
                <div class="flex">
                   <h3>luxurious rooms</h3>
-                  <a href="#availability" class="btn">check availability</a>
+                  <a href="availability.php" class="btn">check availability</a>
                </div>
             </div>
    
@@ -154,7 +158,7 @@ if(isset($_POST['send'])){
                <img src="images/home-img-2.jpg" alt="">
                <div class="flex">
                   <h3>foods and drinks</h3>
-                  <a href="#reservation" class="btn">make a reservation</a>
+                  <a href="reservation.php" class="btn">make a reservation</a>
                </div>
             </div>
    
@@ -162,7 +166,7 @@ if(isset($_POST['send'])){
                <img src="images/home-img-3.jpg" alt="">
                <div class="flex">
                   <h3>luxurious halls</h3>
-                  <a href="#contact" class="btn">contact us</a>
+                  <a href="contact.php" class="btn">contact us</a>
                </div>
             </div>
    
@@ -177,7 +181,7 @@ if(isset($_POST['send'])){
    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
    <script src="js/script.js"></script>
-
+   
    <?php include 'components/message.php'; ?>
 
 </body>

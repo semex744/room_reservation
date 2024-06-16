@@ -12,8 +12,8 @@
 <body>
    <section class="header">
       <div class="flex">
-         <a href="#home" class="logo">Hotels And Resorts</a>
-         <a href="#availability" class="btn">check availability</a>
+         <a href="home.php" class="logo">Hotels And Resorts</a>
+         <a href="availability.php" class="btn">check availability</a>
          <div id="menu-btn" class="fas fa-bars"></div>
       </div>
       <nav class="navbar">
