@@ -12,8 +12,8 @@
 <body>
    <section class="header">
       <div class="flex">
-         <a href="#home" class="logo">Hotels And Resorts</a>
-         <a href="#availability" class="btn">check availability</a>
+         <a href="home.php" class="logo">Hotels And Resorts</a>
+         <a href="availability.php" class="btn">availability</a>
          <div id="menu-btn" class="fas fa-bars"></div>
       </div>
       <nav class="navbar">
@@ -23,6 +23,7 @@
          <a href="gallary.php">gallery</a>
          <a href="contact.php">contact</a>
          <a href="bookings.php">my bookings</a>
+         <a href="registration.php">registration</a>
       </nav>
    </section>
     <section class="about" id="about">
@@ -64,5 +65,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script src="js/script.js"></script>
+<?php include 'components/message.php'; ?>
 </body>
 </html>
