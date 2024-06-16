@@ -19,19 +19,20 @@
       </div>
    
       <nav class="navbar">
-         <a href="home.html">home</a>
-         <a href="about.html">about</a>
-         <a href="reservation.html">reservation</a>
-         <a href="gallary.html">gallery</a>
-         <a href="contact.html">contact</a>
+         <a href="home.php">home</a>
+         <a href="about.php">about</a>
+         <a href="reservation.php">reservation</a>
+         <a href="gallary.php">gallery</a>
+         <a href="contact.php">contact</a>
          <a href="bookings.php">my bookings</a>
       </nav>
    
+
    </section>
     <section class="contact" id="contact">
         <div class="row">
      
-           <form action="" method="post">
+           <form action="home.php" method="post">
               <h3>send us message</h3>
               <input type="text" name="name" required maxlength="50" placeholder="enter your name" class="box">
               <input type="email" name="email" required maxlength="50" placeholder="enter your email" class="box">

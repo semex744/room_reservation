@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>availability</title>
+    <title>reservation</title>
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
    
 </head>
 <body>
@@ -19,18 +19,42 @@
       </div>
    
       <nav class="navbar">
-         <a href="home.html">home</a>
-         <a href="about.html">about</a>
-         <a href="reservation.html">reservation</a>
-         <a href="gallary.html">gallery</a>
-         <a href="contact.html">contact</a>
+         <a href="home.php">home</a>
+         <a href="about.php">about</a>
+         <a href="reservation.php">reservation</a>
+         <a href="gallary.php">gallery</a>
+         <a href="contact.php">contact</a>
          <a href="bookings.php">my bookings</a>
       </nav>
-   
    </section>
-    <section class="availability" id="availability">
-        <form action="" method="post">
+    <section class="reservation" id="reservation">
+      
+        <form action="home.php" method="post">
+           <h3>make a reservation</h3>
            <div class="flex">
+              <div class="box">
+                 <p>your name <span>*</span></p>
+                 <input type="text" name="name" maxlength="50" required placeholder="enter your name" class="input">
+              </div>
+              <div class="box">
+                 <p>your email <span>*</span></p>
+                 <input type="email" name="email" maxlength="50" required placeholder="enter your email" class="input">
+              </div>
+              <div class="box">
+                 <p>your number <span>*</span></p>
+                 <input type="number" name="number" maxlength="10" min="0" max="9999999999" required placeholder="enter your number" class="input">
+              </div>
+              <div class="box">
+                 <p>rooms <span>*</span></p>
+                 <select name="rooms" class="input" required>
+                    <option value="1" selected>1 room</option>
+                    <option value="2">2 rooms</option>
+                    <option value="3">3 rooms</option>
+                    <option value="4">4 rooms</option>
+                    <option value="5">5 rooms</option>
+                    <option value="6">6 rooms</option>
+                 </select>
+              </div>
               <div class="box">
                  <p>check in <span>*</span></p>
                  <input type="date" name="check_in" class="input" required>
@@ -42,7 +66,7 @@
               <div class="box">
                  <p>adults <span>*</span></p>
                  <select name="adults" class="input" required>
-                    <option value="1">1 adult</option>
+                    <option value="1" selected>1 adult</option>
                     <option value="2">2 adults</option>
                     <option value="3">3 adults</option>
                     <option value="4">4 adults</option>
@@ -53,7 +77,7 @@
               <div class="box">
                  <p>childs <span>*</span></p>
                  <select name="childs" class="input" required>
-                    <option value="-">0 child</option>
+                    <option value="0" selected>0 child</option>
                     <option value="1">1 child</option>
                     <option value="2">2 childs</option>
                     <option value="3">3 childs</option>
@@ -62,26 +86,12 @@
                     <option value="6">6 childs</option>
                  </select>
               </div>
-              <div class="box">
-                 <p>rooms <span>*</span></p>
-                 <select name="rooms" class="input" required>
-                    <option value="1">1 room</option>
-                    <option value="2">2 rooms</option>
-                    <option value="3">3 rooms</option>
-                    <option value="4">4 rooms</option>
-                    <option value="5">5 rooms</option>
-                    <option value="6">6 rooms</option>
-                 </select>
-              </div>
            </div>
-           <input type="submit" value="check availability" name="check" class="btn">
+           <input type="submit" value="book now" name="book" class="btn">
         </form>
-     
      </section>
      <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script src="js/script.js"></script>
-      
 </body>
 </html>
