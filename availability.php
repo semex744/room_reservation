@@ -1,3 +1,18 @@
+<?php 
+
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name'])) {
+    // User is not logged in, redirect to the login page
+    header('Location: login.php');
+    exit;
+}
+
+// User is logged in, continue with the page
+$user_id = $_SESSION['user_id'];
+$user_name = $_SESSION['user_name'];
+include 'header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,23 +25,9 @@
    
 </head>
 <body>
-   <section class="header">
-      <div class="flex">
-         <a href="home.php" class="logo">Hotels And Resorts</a>
-         <a href="availability.php" class="btn">check availability</a>
-         <div id="menu-btn" class="fas fa-bars"></div>
-      </div>
-      <nav class="navbar">
-         <a href="home.php">home</a>
-         <a href="about.php">about</a>
-         <a href="reservation.php">reservation</a>
-         <a href="gallary.php">gallery</a>
-         <a href="contact.php">contact</a>
-         <a href="bookings.php">my bookings</a>
-      </nav>
-   </section>
+</section>
     <section class="availability" id="availability">
-        <form action="home.php" method="post">
+        <form action="index.php" method="post">
            <div class="flex">
               <div class="box">
                  <p>check in <span>*</span></p>
@@ -76,7 +77,6 @@
      
      </section>
      <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script src="js/script.js"></script>
       

@@ -1,4 +1,26 @@
+<?php 
+
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name'])) {
+    // User is not logged in, redirect to the login page
+    header('Location: login.php');
+    exit;
+}
+
+// User is logged in, continue with the page
+$user_id = $_SESSION['user_id'];
+$user_name = $_SESSION['user_name'];
+
+// Rest of the page code
+
+
+include 'header.php';
+ ?>
+
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,22 +32,9 @@
    
 </head>
 <body>
-   <section class="header">
-      <div class="flex">
-         <a href="home.php" class="logo">Hotels And Resorts</a>
-         <a href="availability.php" class="btn">availability</a>
-         <div id="menu-btn" class="fas fa-bars"></div>
-      </div>
-      <nav class="navbar">
-         <a href="home.php">home</a>
-         <a href="about.php">about</a>
-         <a href="reservation.php">reservation</a>
-         <a href="gallary.php">gallery</a>
-         <a href="contact.php">contact</a>
-         <a href="bookings.php">my bookings</a>
-         <a href="registration.php">registration</a>
-      </nav>
-   </section>
+
+
+</section>
     <section class="about" id="about">
         <div class="row">
            <div class="image">

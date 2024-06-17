@@ -23,5 +23,6 @@ if(isset($error_msg)){
       echo '<script>swal("'.$error_msg.'", "" ,"error");</script>';
    }
 }
+ 
 
 ?>

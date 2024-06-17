@@ -34,6 +34,8 @@ if(isset($_POST['delete'])){
    <link rel="stylesheet" href="../css/admin_style.css">
 </head>
 <body>
+   
+<?php include '../components/admin_header.php'; ?>
 <section class="grid">
    <h1 class="heading">bookings</h1>
    <div class="box-container">
@@ -44,6 +46,7 @@ if(isset($_POST['delete'])){
          while($fetch_bookings = $select_bookings->fetch(PDO::FETCH_ASSOC)){
    ?>
    <div class="box">
+      <p>booking id : <span><?= $fetch_bookings['booking_id']; ?></span></p>
       <p>name : <span><?= $fetch_bookings['name']; ?></span></p>
       <p>email : <span><?= $fetch_bookings['email']; ?></span></p>
       <p>number : <span><?= $fetch_bookings['number']; ?></span></p>
@@ -52,7 +55,6 @@ if(isset($_POST['delete'])){
       <p>rooms : <span><?= $fetch_bookings['rooms']; ?></span></p>
       <p>adults : <span><?= $fetch_bookings['adults']; ?></span></p>
       <p>childs : <span><?= $fetch_bookings['childs']; ?></span></p>
-      <p>confirmation_code : <span><?= $fetch_bookings['confirmation_code']; ?></span></p>
       <form action="" method="POST">
          <input type="hidden" name="delete_id" value="<?= $fetch_bookings['booking_id']; ?>">
          <input type="submit" value="delete booking" onclick="return confirm('delete this booking?');" name="delete" class="btn">
@@ -73,5 +75,6 @@ if(isset($_POST['delete'])){
 </section>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script src="../js/admin_script.js"></script>
+<?php include '../components/message.php'; ?>
 </body>
 </html>

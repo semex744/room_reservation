@@ -1,5 +1,20 @@
 <?php
 
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name'])) {
+    // User is not logged in, redirect to the login page
+    header('Location: login.php');
+    exit;
+}
+
+// User is logged in, continue with the page
+$user_id = $_SESSION['user_id'];
+$user_name = $_SESSION['user_name'];
+
+// Rest of the page code
+
 include 'components/connect.php';
 
 if(isset($_COOKIE['user_id'])){
@@ -47,11 +62,7 @@ if(isset($_POST['cancel'])){
 
 </head>
 <body>
-
-<?php include 'components/user_header.php'; ?>
-
-<!-- booking section starts  -->
-
+<?php include 'header.php'; ?>
 <section class="bookings">
 
    <h1 class="heading">my bookings</h1>
@@ -73,7 +84,6 @@ if(isset($_POST['cancel'])){
       <p>rooms : <span><?= $fetch_booking['rooms']; ?></span></p>
       <p>adults : <span><?= $fetch_booking['adults']; ?></span></p>
       <p>childs : <span><?= $fetch_booking['childs']; ?></span></p>
-      <p>booking id : <span><?= $fetch_booking['booking_id']; ?></span></p>
       <form action="" method="POST">
          <input type="hidden" name="booking_id" value="<?= $fetch_booking['booking_id']; ?>">
          <input type="submit" value="cancel booking" name="cancel" class="btn" onclick="return confirm('cancel this booking?');">
@@ -94,15 +104,9 @@ if(isset($_POST['cancel'])){
 
 </section>
 <?php include 'components/footer.php'; ?>
-
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-
-<!-- custom js file link  -->
 <script src="js/script.js"></script>
-
 <?php include 'components/message.php'; ?>
-
-</body>
+body>
 </html>

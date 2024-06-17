@@ -1,0 +1,45 @@
+body{
+    background-color: #2B1103;
+}
+.topmenu{
+    background-color: #2B1103;
+    padding: 20px 0;
+}
+.topmenu .menubar{
+    padding: 0 50px;
+}
+.topmenu a{
+    color:#fff;
+    padding: 0 30px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.topmenu a:hover{
+    color:aqua;
+}
+h1{
+    text-align: center;
+}
+
+form{
+    width: 50%;
+    margin: auto;
+    border: 1px solid #000;
+    padding: 14px;
+    border-radius: 10px;
+    background-color: #2B1103;
+}
+
+.input-err{
+    height: 10px;
+}
+.err-msg{
+    width: 50%;
+    margin: auto;
+}
+.user{
+    float: right;
+    color: #fff;
+    
+}
