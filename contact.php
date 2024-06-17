@@ -29,7 +29,11 @@ include 'header.php'; ?>
    
 </head>
 <body>
+
     <section class="contact" id="contact">
+
+    <section class="contact" id="contact">
+
         <div class="row">
      
            <form action="index.php" method="post">
@@ -40,6 +44,30 @@ include 'header.php'; ?>
               <textarea name="message" class="box" required maxlength="1000" placeholder="enter your message" cols="30" rows="10"></textarea>
               <input type="submit" value="send message" name="send" class="btn">
            </form>
+     
+           <div class="faq">
+              <h3 class="title">frequently asked questions</h3>
+              <div class="box active">
+                 <h3>how to cancel?</h3>
+                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt aspernatur excepturi eos! Quibusdam, sapiente.</p>
+              </div>
+              <div class="box">
+                 <h3>is there any vacancy?</h3>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ipsam neque quaerat mollitia ratione? Soluta!</p>
+              </div>
+              <div class="box">
+                 <h3>what are payment methods?</h3>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ipsam neque quaerat mollitia ratione? Soluta!</p>
+              </div>
+              <div class="box">
+                 <h3>how to claim coupons codes?</h3>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ipsam neque quaerat mollitia ratione? Soluta!</p>
+              </div>
+              <div class="box">
+                 <h3>what are the age requirements?</h3>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ipsam neque quaerat mollitia ratione? Soluta!</p>
+              </div>
+           </div>
      
         </div>
      

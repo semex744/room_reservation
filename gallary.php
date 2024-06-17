@@ -27,6 +27,9 @@ include 'header.php'; ?>
    
 </head>
 <body>
+
+    <section class="gallery" id="gallery">
+
     <section class="gallery" id="gallery">
       
         <div class="swiper gallery-slider">

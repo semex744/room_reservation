@@ -17,10 +17,23 @@ redirectBasedOnLoginStatus();
    
 </head>
 <body>
+<<<<<<< HEAD:reservation.php
+=======
+<<<<<<< HEAD
+    <section class="reservation" id="reservation">
+
+=======
+   <section class="header">
+>>>>>>> 08211f53fb620a359de576a9543b2861b588d391:reservation.html
 
     <section class="reservation" id="reservation">
       
+<<<<<<< HEAD:reservation.php
         <form action="index.php" method="post">
+=======
+>>>>>>> 5d255698a0b6d0953037624b1dedf5bea5511810
+        <form action="" method="post">
+>>>>>>> 08211f53fb620a359de576a9543b2861b588d391:reservation.html
            <h3>make a reservation</h3>
            <div class="flex">
               <div class="box">
@@ -80,8 +93,15 @@ redirectBasedOnLoginStatus();
            </div>
            <input type="submit" value="book now" name="book" class="btn">
         </form>
+<<<<<<< HEAD
+     
      </section>
      <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+=======
+     </section>
+     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+>>>>>>> 5d255698a0b6d0953037624b1dedf5bea5511810
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script src="js/script.js"></script>
 </body>

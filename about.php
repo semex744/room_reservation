@@ -33,9 +33,8 @@ include 'header.php';
 </head>
 <body>
 
-
-</section>
     <section class="about" id="about">
+
         <div class="row">
            <div class="image">
               <img src="images/about-img-1.jpg" alt="">

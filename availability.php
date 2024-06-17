@@ -25,9 +25,16 @@ include 'header.php'; ?>
    
 </head>
 <body>
-</section>
     <section class="availability" id="availability">
         <form action="index.php" method="post">
+
+    <section class="availability" id="availability">
+
+
+    <section class="availability" id="availability">
+
+        <form action="" method="post">
+
            <div class="flex">
               <div class="box">
                  <p>check in <span>*</span></p>

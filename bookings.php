@@ -21,6 +21,7 @@ if(isset($_COOKIE['user_id'])){
    $user_id = $_COOKIE['user_id'];
 }else{
    setcookie('user_id', create_unique_id(), time() + 60*60*24*30, '/');
+
    header('location:home.php');
 }
 
@@ -62,7 +63,10 @@ if(isset($_POST['cancel'])){
 
 </head>
 <body>
+
 <?php include 'header.php'; ?>
+<!-- booking section starts  -->
+
 <section class="bookings">
 
    <h1 class="heading">my bookings</h1>
@@ -84,6 +88,10 @@ if(isset($_POST['cancel'])){
       <p>rooms : <span><?= $fetch_booking['rooms']; ?></span></p>
       <p>adults : <span><?= $fetch_booking['adults']; ?></span></p>
       <p>childs : <span><?= $fetch_booking['childs']; ?></span></p>
+<<<<<<< HEAD
+=======
+      <p>booking id : <span><?= $fetch_booking['booking_id']; ?></span></p>
+>>>>>>> 08211f53fb620a359de576a9543b2861b588d391
       <form action="" method="POST">
          <input type="hidden" name="booking_id" value="<?= $fetch_booking['booking_id']; ?>">
          <input type="submit" value="cancel booking" name="cancel" class="btn" onclick="return confirm('cancel this booking?');">
@@ -95,7 +103,11 @@ if(isset($_POST['cancel'])){
    ?>   
    <div class="box" style="text-align: center;">
       <p style="padding-bottom: .5rem; text-transform:capitalize;">no bookings found!</p>
+<<<<<<< HEAD
       <a href="reservation.php" class="btn">book new</a>
+=======
+      <a href="index.php#reservation" class="btn">book new</a>
+>>>>>>> 08211f53fb620a359de576a9543b2861b588d391
    </div>
    <?php
    }
@@ -103,10 +115,28 @@ if(isset($_POST['cancel'])){
    </div>
 
 </section>
+<<<<<<< HEAD
 <?php include 'components/footer.php'; ?>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script src="js/script.js"></script>
 <?php include 'components/message.php'; ?>
 body>
+=======
+
+<!-- booking section ends -->
+
+<?php include 'components/footer.php'; ?>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+<?php include 'components/message.php'; ?>
+
+</body>
+>>>>>>> 08211f53fb620a359de576a9543b2861b588d391
 </html>
