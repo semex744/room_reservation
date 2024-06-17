@@ -1,3 +1,22 @@
+<?php 
+
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name'])) {
+    // User is not logged in, redirect to the login page
+    header('Location: login.php');
+    exit;
+}
+
+// User is logged in, continue with the page
+$user_id = $_SESSION['user_id'];
+$user_name = $_SESSION['user_name'];
+
+// Rest of the page code
+
+
+include 'header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,33 +29,14 @@
    
 </head>
 <body>
-<<<<<<< HEAD
+
     <section class="contact" id="contact">
 
-=======
-   <section class="header">
-
-      <div class="flex">
-         <a href="#home" class="logo">Hotels And Resorts</a>
-         <a href="#availability" class="btn">check availability</a>
-         <div id="menu-btn" class="fas fa-bars"></div>
-      </div>
-   
-      <nav class="navbar">
-         <a href="home.html">home</a>
-         <a href="about.html">about</a>
-         <a href="reservation.html">reservation</a>
-         <a href="gallary.html">gallery</a>
-         <a href="contact.html">contact</a>
-         <a href="bookings.php">my bookings</a>
-      </nav>
-   
-   </section>
     <section class="contact" id="contact">
->>>>>>> 5d255698a0b6d0953037624b1dedf5bea5511810
+
         <div class="row">
      
-           <form action="" method="post">
+           <form action="index.php" method="post">
               <h3>send us message</h3>
               <input type="text" name="name" required maxlength="50" placeholder="enter your name" class="box">
               <input type="email" name="email" required maxlength="50" placeholder="enter your email" class="box">
@@ -45,7 +45,6 @@
               <input type="submit" value="send message" name="send" class="btn">
            </form>
      
-<<<<<<< HEAD
            <div class="faq">
               <h3 class="title">frequently asked questions</h3>
               <div class="box active">
@@ -70,8 +69,6 @@
               </div>
            </div>
      
-=======
->>>>>>> 5d255698a0b6d0953037624b1dedf5bea5511810
         </div>
      
      </section> 

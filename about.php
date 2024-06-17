@@ -1,4 +1,26 @@
+<?php 
+
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name'])) {
+    // User is not logged in, redirect to the login page
+    header('Location: login.php');
+    exit;
+}
+
+// User is logged in, continue with the page
+$user_id = $_SESSION['user_id'];
+$user_name = $_SESSION['user_name'];
+
+// Rest of the page code
+
+
+include 'header.php';
+ ?>
+
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,27 +32,9 @@
    
 </head>
 <body>
-<<<<<<< HEAD
+
     <section class="about" id="about">
 
-=======
-   <section class="header">
-      <div class="flex">
-         <a href="#home" class="logo">Hotels And Resorts</a>
-         <a href="#availability" class="btn">check availability</a>
-         <div id="menu-btn" class="fas fa-bars"></div>
-      </div>
-      <nav class="navbar">
-         <a href="home.html">home</a>
-         <a href="about.html">about</a>
-         <a href="reservation.html">reservation</a>
-         <a href="gallary.html">gallery</a>
-         <a href="contact.html">contact</a>
-         <a href="bookings.php">my bookings</a>
-      </nav>
-   </section>
-    <section class="about" id="about">
->>>>>>> 5d255698a0b6d0953037624b1dedf5bea5511810
         <div class="row">
            <div class="image">
               <img src="images/about-img-1.jpg" alt="">
@@ -69,5 +73,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script src="js/script.js"></script>
+<?php include 'components/message.php'; ?>
 </body>
 </html>

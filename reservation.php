@@ -1,3 +1,10 @@
+<?php 
+// reservation.php
+require_once 'config.php';
+redirectBasedOnLoginStatus();
+
+// Rest of the reservation page code
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,32 +17,23 @@
    
 </head>
 <body>
+<<<<<<< HEAD:reservation.php
+=======
 <<<<<<< HEAD
     <section class="reservation" id="reservation">
 
 =======
    <section class="header">
+>>>>>>> 08211f53fb620a359de576a9543b2861b588d391:reservation.html
 
-      <div class="flex">
-         <a href="#home" class="logo">Hotels And Resorts</a>
-         <a href="#availability" class="btn">check availability</a>
-         <div id="menu-btn" class="fas fa-bars"></div>
-      </div>
-   
-      <nav class="navbar">
-         <a href="home.html">home</a>
-         <a href="about.html">about</a>
-         <a href="reservation.html">reservation</a>
-         <a href="gallary.html">gallery</a>
-         <a href="contact.html">contact</a>
-         <a href="bookings.php">my bookings</a>
-      </nav>
-   
-   </section>
     <section class="reservation" id="reservation">
       
+<<<<<<< HEAD:reservation.php
+        <form action="index.php" method="post">
+=======
 >>>>>>> 5d255698a0b6d0953037624b1dedf5bea5511810
         <form action="" method="post">
+>>>>>>> 08211f53fb620a359de576a9543b2861b588d391:reservation.html
            <h3>make a reservation</h3>
            <div class="flex">
               <div class="box">

@@ -1,0 +1,42 @@
+
+.form-container{
+    min-height: calc(100vh - 20rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ 
+ .form-container form{
+    width: 50rem;
+    border-radius: .5rem;
+    padding: 2rem;
+    border: var(--border);
+    text-align: center;
+ }
+ 
+ .form-container form h3{
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    color: var(--main-color);
+    text-transform: capitalize;
+ }
+ 
+ .form-container form p{
+    padding: 1rem 0;
+    font-size:1.8rem;
+    color: var(--sub-color);
+ }
+ 
+ .form-container form p span{
+    color: var(--main-color);
+ }
+ 
+ .form-container form .box{
+    width: 100%;
+    border-radius: .5rem;
+    padding: 1.4rem;
+    font-size: 1.8rem;
+    color: var(--main-color);
+    border: var(--border);
+    margin: 1rem 0;
+ }

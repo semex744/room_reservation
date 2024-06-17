@@ -1,3 +1,21 @@
+<?php 
+
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name'])) {
+    // User is not logged in, redirect to the login page
+    header('Location: login.php');
+    exit;
+}
+
+// User is logged in, continue with the page
+$user_id = $_SESSION['user_id'];
+$user_name = $_SESSION['user_name'];
+
+// Rest of the page code
+
+include 'header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +27,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
    
 <body>
+<<<<<<< HEAD:service.php
+=======
 <<<<<<< HEAD
     <section class="services">
 
@@ -67,6 +87,7 @@
       </nav>
    
    </section>
+>>>>>>> 08211f53fb620a359de576a9543b2861b588d391:service.html
     <section class="services">
         <div class="box-container">
            <div class="box">
