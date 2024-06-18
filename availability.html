@@ -1,92 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>availability</title>
-    <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
-   
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Availability</title>
+   <link rel="stylesheet" href="css/style.css" />
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+   <style>
+      /* Additional CSS styles can be added here */
+      body {
+         font-family: Arial, sans-serif;
+         line-height: 1.6;
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         background-color: #f0f0f0;
+      }
+
+      .header {
+         background-color: #333;
+         color: #fff;
+         padding: 10px 0;
+         position: sticky;
+         top: 0;
+         z-index: 1000;
+      }
+
+      .flex {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         max-width: 1200px;
+         margin: 0 auto;
+         padding: 0 20px;
+      }
+
+      .logo {
+         font-size: 1.5rem;
+         text-decoration: none;
+         color: #fff;
+         font-weight: bold;
+      }
+
+      .navbar {
+         display: flex;
+         gap: 20px;
+      }
+
+      .navbar a {
+         color: #fff;
+         text-decoration: none;
+         font-size: 1rem;
+         transition: color 0.3s ease;
+      }
+
+      .navbar a:hover {
+         color: #ffc107;
+      }
+
+      .menu-btn {
+         display: none;
+         /* Hide menu button initially */
+         cursor: pointer;
+         font-size: 1.8rem;
+      }
+
+      @media (max-width: 768px) {
+         .menu-btn {
+            display: block;
+            /* Show menu button for mobile */
+         }
+
+         .navbar {
+            display: none;
+            /* Hide navbar links initially on mobile */
+            flex-direction: column;
+            position: absolute;
+            width: 100%;
+            top: 50px;
+            background-color: #333;
+            left: 0;
+            text-align: center;
+         }
+
+         .navbar a {
+            padding: 10px 0;
+            width: 100%;
+         }
+
+         .navbar.active {
+            display: flex;
+            /* Show navbar links when menu-btn is clicked */
+         }
+      }
+
+      .availability {
+         padding: 40px 20px;
+         text-align: center;
+      }
+
+      .availability form {
+         max-width: 600px;
+         margin: 0 auto;
+         background-color: #fff;
+         border-radius: 8px;
+         padding: 20px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .availability .flex {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 20px;
+         justify-content: center;
+         align-items: center;
+      }
+
+      .availability .box {
+         flex: 1 1 200px;
+         text-align: left;
+      }
+
+      .availability .box p {
+         margin-bottom: 8px;
+         font-weight: bold;
+      }
+
+      .availability .input {
+         width: 100%;
+         padding: 8px;
+         font-size: 1rem;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+      }
+
+      .availability .btn {
+         display: block;
+         width: 100%;
+         padding: 10px;
+         margin-top: 20px;
+         background-color: #333;
+         color: #fff;
+         border: none;
+         border-radius: 4px;
+         cursor: pointer;
+         font-size: 1.1rem;
+         transition: background-color 0.3s ease;
+      }
+
+      .availability .btn:hover {
+         background-color: #555;
+      }
+   </style>
 </head>
+
 <body>
-<<<<<<< HEAD
-    <section class="availability" id="availability">
-
-=======
-   <section class="header">
-
+   <header class="header">
       <div class="flex">
          <a href="#home" class="logo">Hotels And Resorts</a>
-         <a href="#availability" class="btn">check availability</a>
-         <div id="menu-btn" class="fas fa-bars"></div>
+         <div class="menu-btn"><i class="fas fa-bars"></i></div>
       </div>
-   
       <nav class="navbar">
-         <a href="home.html">home</a>
-         <a href="about.html">about</a>
-         <a href="reservation.html">reservation</a>
-         <a href="gallary.html">gallery</a>
-         <a href="contact.html">contact</a>
-         <a href="bookings.php">my bookings</a>
+         <a href="home.html">Home</a>
+         <a href="about.html">About</a>
+         <a href="reservation.html">Reservation</a>
+         <a href="gallery.html">Gallery</a>
+         <a href="contact.html">Contact</a>
+         <a href="bookings.php">My Bookings</a>
       </nav>
-   
-   </section>
-    <section class="availability" id="availability">
->>>>>>> 5d255698a0b6d0953037624b1dedf5bea5511810
-        <form action="" method="post">
-           <div class="flex">
-              <div class="box">
-                 <p>check in <span>*</span></p>
-                 <input type="date" name="check_in" class="input" required>
-              </div>
-              <div class="box">
-                 <p>check out <span>*</span></p>
-                 <input type="date" name="check_out" class="input" required>
-              </div>
-              <div class="box">
-                 <p>adults <span>*</span></p>
-                 <select name="adults" class="input" required>
-                    <option value="1">1 adult</option>
-                    <option value="2">2 adults</option>
-                    <option value="3">3 adults</option>
-                    <option value="4">4 adults</option>
-                    <option value="5">5 adults</option>
-                    <option value="6">6 adults</option>
-                 </select>
-              </div>
-              <div class="box">
-                 <p>childs <span>*</span></p>
-                 <select name="childs" class="input" required>
-                    <option value="-">0 child</option>
-                    <option value="1">1 child</option>
-                    <option value="2">2 childs</option>
-                    <option value="3">3 childs</option>
-                    <option value="4">4 childs</option>
-                    <option value="5">5 childs</option>
-                    <option value="6">6 childs</option>
-                 </select>
-              </div>
-              <div class="box">
-                 <p>rooms <span>*</span></p>
-                 <select name="rooms" class="input" required>
-                    <option value="1">1 room</option>
-                    <option value="2">2 rooms</option>
-                    <option value="3">3 rooms</option>
-                    <option value="4">4 rooms</option>
-                    <option value="5">5 rooms</option>
-                    <option value="6">6 rooms</option>
-                 </select>
-              </div>
-           </div>
-           <input type="submit" value="check availability" name="check" class="btn">
-        </form>
-     
-     </section>
-     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+   </header>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-<script src="js/script.js"></script>
-      
+   <section class="availability" id="availability">
+      <form action="" method="post">
+         <div class="flex">
+            <div class="box">
+               <p>Check In <span>*</span></p>
+               <input type="date" name="check_in" class="input" required>
+            </div>
+            <div class="box">
+               <p>Check Out <span>*</span></p>
+               <input type="date" name="check_out" class="input" required>
+            </div>
+            <div class="box">
+               <p>Adults <span>*</span></p>
+               <select name="adults" class="input" required>
+                  <option value="1">1 adult</option>
+                  <option value="2">2 adults</option>
+                  <option value="3">3 adults</option>
+                  <option value="4">4 adults</option>
+                  <option value="5">5 adults</option>
+                  <option value="6">6 adults</option>
+               </select>
+            </div>
+            <div class="box">
+               <p>Children <span>*</span></p>
+               <select name="children" class="input" required>
+                  <option value="0">0 children</option>
+                  <option value="1">1 child</option>
+                  <option value="2">2 children</option>
+                  <option value="3">3 children</option>
+                  <option value="4">4 children</option>
+                  <option value="5">5 children</option>
+                  <option value="6">6 children</option>
+               </select>
+            </div>
+            <div class="box">
+               <p>Rooms <span>*</span></p>
+               <select name="rooms" class="input" required>
+                  <option value="1">1 room</option>
+                  <option value="2">2 rooms</option>
+                  <option value="3">3 rooms</option>
+                  <option value="4">4 rooms</option>
+                  <option value="5">5 rooms</option>
+                  <option value="6">6 rooms</option>
+               </select>
+            </div>
+         </div>
+         <input type="submit" value="Check Availability" name="check" class="btn">
+      </form>
+   </section>
+
+   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+   <script src="js/script.js"></script>
+   <script>
+      // Toggle mobile navbar
+      document.querySelector('.menu-btn').addEventListener('click', function () {
+         document.querySelector('.navbar').classList.toggle('active');
+      });
+   </script>
 </body>
+
 </html>
