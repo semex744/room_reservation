@@ -1,60 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>reviews</title>
-    <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
-   
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Reviews</title>
+   <link rel="stylesheet" href="css/style.css" />
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+   <style>
+      /* Additional CSS styles can be added here */
+      body {
+         font-family: Arial, sans-serif;
+         line-height: 1.6;
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         background-color: #f0f0f0;
+      }
+
+      .reviews {
+         padding: 40px 20px;
+         text-align: center;
+      }
+
+      .reviews .swiper-slide {
+         background-color: #fff;
+         border-radius: 8px;
+         padding: 20px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+         text-align: center;
+      }
+
+      .reviews .swiper-slide img {
+         width: 100px;
+         height: 100px;
+         border-radius: 50%;
+         margin-bottom: 20px;
+      }
+
+      .reviews .swiper-slide h3 {
+         font-size: 1.5rem;
+         margin-bottom: 10px;
+         color: #333;
+      }
+
+      .reviews .swiper-slide p {
+         font-size: 1rem;
+         color: #666;
+         line-height: 1.6;
+      }
+   </style>
 </head>
+
 <body>
-    <section class="reviews" id="reviews">
+   <section class="reviews" id="reviews">
+      <div class="swiper reviews-slider">
+         <div class="swiper-wrapper">
+            <div class="swiper-slide box">
+               <img src="images/pic-1.png" alt="John Doe">
+               <h3>John Doe</h3>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque
+                  aliquid explicabo.</p>
+            </div>
+            <div class="swiper-slide box">
+               <img src="images/pic-2.png" alt="Jane Smith">
+               <h3>Jane Smith</h3>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque
+                  aliquid explicabo.</p>
+            </div>
+            <div class="swiper-slide box">
+               <img src="images/pic-3.png" alt="Michael Johnson">
+               <h3>Michael Johnson</h3>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque
+                  aliquid explicabo.</p>
+            </div>
+            <div class="swiper-slide box">
+               <img src="images/pic-4.png" alt="Emily Brown">
+               <h3>Emily Brown</h3>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque
+                  aliquid explicabo.</p>
+            </div>
+            <div class="swiper-slide box">
+               <img src="images/pic-5.png" alt="David Wilson">
+               <h3>David Wilson</h3>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque
+                  aliquid explicabo.</p>
+            </div>
+            <div class="swiper-slide box">
+               <img src="images/pic-6.png" alt="Sarah Adams">
+               <h3>Sarah Adams</h3>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque
+                  aliquid explicabo.</p>
+            </div>
+         </div>
+         <div class="swiper-pagination"></div>
+      </div>
+   </section>
 
-        <div class="swiper reviews-slider">
-     
-           <div class="swiper-wrapper">
-              <div class="swiper-slide box">
-                 <img src="images/pic-1.png" alt="">
-                 <h3>john deo</h3>
-                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque aliquid explicabo.</p>
-              </div>
-              <div class="swiper-slide box">
-                 <img src="images/pic-2.png" alt="">
-                 <h3>john deo</h3>
-                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque aliquid explicabo.</p>
-              </div>
-              <div class="swiper-slide box">
-                 <img src="images/pic-3.png" alt="">
-                 <h3>john deo</h3>
-                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque aliquid explicabo.</p>
-              </div>
-              <div class="swiper-slide box">
-                 <img src="images/pic-4.png" alt="">
-                 <h3>john deo</h3>
-                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque aliquid explicabo.</p>
-              </div>
-              <div class="swiper-slide box">
-                 <img src="images/pic-5.png" alt="">
-                 <h3>john deo</h3>
-                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque aliquid explicabo.</p>
-              </div>
-              <div class="swiper-slide box">
-                 <img src="images/pic-6.png" alt="">
-                 <h3>john deo</h3>
-                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque aliquid explicabo.</p>
-              </div>
-           </div>
-     
-           <div class="swiper-pagination"></div>
-        </div>
-     
-     </section>
-     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-<script src="js/script.js"></script>
-     
+   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+   <script src="js/script.js"></script>
 </body>
+
 </html>
