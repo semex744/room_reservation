@@ -1,56 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gallery</title>
-    <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
-   
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Gallery</title>
+   <link rel="stylesheet" href="css/style.css" />
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+   <style>
+      /* Additional CSS styles can be added here */
+      body {
+         font-family: Arial, sans-serif;
+         line-height: 1.6;
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         background-color: #f0f0f0;
+      }
+
+      .header {
+         background-color: #333;
+         color: #fff;
+         padding: 10px 0;
+         position: sticky;
+         top: 0;
+         z-index: 1000;
+      }
+
+      .flex {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         max-width: 1200px;
+         margin: 0 auto;
+         padding: 0 20px;
+      }
+
+      .logo {
+         font-size: 1.5rem;
+         text-decoration: none;
+         color: #fff;
+         font-weight: bold;
+      }
+
+      .navbar {
+         display: flex;
+         gap: 20px;
+      }
+
+      .navbar a {
+         color: #fff;
+         text-decoration: none;
+         font-size: 1rem;
+         transition: color 0.3s ease;
+      }
+
+      .navbar a:hover {
+         color: #ffc107;
+      }
+
+      .menu-btn {
+         display: none;
+         /* Hide menu button initially */
+         cursor: pointer;
+         font-size: 1.8rem;
+      }
+
+      @media (max-width: 768px) {
+         .menu-btn {
+            display: block;
+            /* Show menu button for mobile */
+         }
+
+         .navbar {
+            display: none;
+            /* Hide navbar links initially on mobile */
+            flex-direction: column;
+            position: absolute;
+            width: 100%;
+            top: 50px;
+            background-color: #333;
+            left: 0;
+            text-align: center;
+         }
+
+         .navbar a {
+            padding: 10px 0;
+            width: 100%;
+         }
+
+         .navbar.active {
+            display: flex;
+            /* Show navbar links when menu-btn is clicked */
+         }
+      }
+   </style>
 </head>
+
 <body>
-<<<<<<< HEAD
-    <section class="gallery" id="gallery">
-
-=======
-   <section class="header">
-
+   <header class="header">
       <div class="flex">
          <a href="#home" class="logo">Hotels And Resorts</a>
-         <a href="#availability" class="btn">check availability</a>
-         <div id="menu-btn" class="fas fa-bars"></div>
+         <div class="menu-btn"><i class="fas fa-bars"></i></div>
       </div>
-   
       <nav class="navbar">
-         <a href="home.html">home</a>
-         <a href="about.html">about</a>
-         <a href="reservation.html">reservation</a>
-         <a href="gallary.html">gallery</a>
-         <a href="contact.html">contact</a>
-         <a href="bookings.php">my bookings</a>
+         <a href="home.html">Home</a>
+         <a href="about.html">About</a>
+         <a href="reservation.html">Reservation</a>
+         <a href="gallery.html">Gallery</a>
+         <a href="contact.html">Contact</a>
+         <a href="bookings.php">My Bookings</a>
       </nav>
-   </section>
-    <section class="gallery" id="gallery">
-      
->>>>>>> 5d255698a0b6d0953037624b1dedf5bea5511810
-        <div class="swiper gallery-slider">
-           <div class="swiper-wrapper">
-              <img src="images/gallery-img-1.jpg" class="swiper-slide" alt="">
-              <img src="images/gallery-img-2.webp" class="swiper-slide" alt="">
-              <img src="images/gallery-img-3.webp" class="swiper-slide" alt="">
-              <img src="images/gallery-img-4.webp" class="swiper-slide" alt="">
-              <img src="images/gallery-img-5.webp" class="swiper-slide" alt="">
-              <img src="images/gallery-img-6.webp" class="swiper-slide" alt="">
-           </div>
-           <div class="swiper-pagination"></div>
-        </div>
-     
-     </section>
-     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+   </header>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-<script src="js/script.js"></script>
-     
+   <section class="gallery" id="gallery">
+      <div class="swiper gallery-slider">
+         <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="images/gallery-img-1.jpg" alt="Gallery Image 1"></div>
+            <div class="swiper-slide"><img src="images/gallery-img-2.webp" alt="Gallery Image 2"></div>
+            <div class="swiper-slide"><img src="images/gallery-img-3.webp" alt="Gallery Image 3"></div>
+            <div class="swiper-slide"><img src="images/gallery-img-4.webp" alt="Gallery Image 4"></div>
+            <div class="swiper-slide"><img src="images/gallery-img-5.webp" alt="Gallery Image 5"></div>
+            <div class="swiper-slide"><img src="images/gallery-img-6.webp" alt="Gallery Image 6"></div>
+         </div>
+         <div class="swiper-pagination"></div>
+      </div>
+   </section>
+
+   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+   <script src="js/script.js"></script>
+   <script>
+      var swiper = new Swiper('.gallery-slider', {
+         loop: true,
+         autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+         },
+         pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+         },
+      });
+
+      // Toggle mobile navbar
+      document.querySelector('.menu-btn').addEventListener('click', function () {
+         document.querySelector('.navbar').classList.toggle('active');
+      });
+   </script>
 </body>
+
 </html>
